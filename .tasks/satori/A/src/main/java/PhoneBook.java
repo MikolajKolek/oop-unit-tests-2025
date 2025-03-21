@@ -1,5 +1,6 @@
 /**
- * PO 2021/22, Problem A - PhoneBook
+ * PO 2024/25, Problem A - Książka Telefoniczna
+ *
  * @author YOUR NAME
  */
 

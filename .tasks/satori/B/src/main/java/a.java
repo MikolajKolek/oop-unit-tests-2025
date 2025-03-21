@@ -1,5 +1,5 @@
 /**
- * PO 2021/22, Problem B - Klasa Świra
+ * PO 2024/25, Problem B - Klasa Świra
  * @author YOUR NAME
  */
 

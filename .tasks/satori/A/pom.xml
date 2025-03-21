@@ -1,33 +1,107 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>tcs.po</groupId>
-  <artifactId>satori</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>satori</name>
-  <url>http://maven.apache.org</url>
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.1</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.2</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
-  </properties>
+<modelVersion>4.0.0</modelVersion>
+<groupId>pl.edu.uj.tcs.oop</groupId>
+<artifactId>satori</artifactId>
+<packaging>jar</packaging>
+<version>1.0-SNAPSHOT</version>
+<name>satori</name>
+<url>http://maven.apache.org</url>
+<build>
+  <pluginManagement>
+    <plugins>
+      <plugin>
+        <!-- WARNING: running mvn test runs tests defined in classes *Test Test*, but IGNORES e.g. SingletonTestOne -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0</version>
+        <!-- the following prevents re-using VM while testing, very important for testing static properties e.g. in LAB04-Singleton -->
+        <configuration>
+              <reuseForks>${reuseForks}</reuseForks>
+              <argLine>-Xms${memory}m -Xmx${memory}m</argLine>
+        </configuration>        
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.5.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+      </plugin>
+    </plugins>
+  </pluginManagement>
+</build>
+<dependencies>
+  <dependency>
+    <groupId>org.apache.maven.surefire</groupId>
+    <artifactId>surefire-junit4</artifactId>
+    <version>3.0.0</version>
+  </dependency>
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.2</version>
+    <scope>test</scope>
+  </dependency>
+</dependencies>
+<properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <maven.compiler.release>17</maven.compiler.release>
+  <memory>1024</memory>
+  <reuseForks>true</reuseForks>
+</properties>
+<profiles>
+  <profile>
+    <id>default</id>
+    <activation>
+      <property>
+        <name>allowWarnings</name>
+        <value>true</value>
+      </property>
+    </activation>
+    <build>
+      <pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration combine.self="override">
+              <showWarnings>true</showWarnings>
+              <compilerArgs>
+                <arg>-Xlint:all</arg>
+                <arg>-Werror</arg>
+              </compilerArgs>
+            </configuration>
+          </plugin>
+        </plugins>
+      </pluginManagement>
+    </build>
+    <properties>
+      <org.slf4j.simpleLogger.defaultLogLevel>warn</org.slf4j.simpleLogger.defaultLogLevel>
+    </properties>
+  </profile>
+  <profile>
+    <id>allow-warnings</id>
+    <activation>
+      <property>
+        <name>allowWarnings</name>
+        <value>true</value>
+      </property>
+    </activation>
+    <build>
+      <pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration combine.self="override" />
+          </plugin>
+        </plugins>
+      </pluginManagement>
+    </build>
+  </profile>
+</profiles>
 </project>

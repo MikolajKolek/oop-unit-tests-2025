@@ -1,7 +1,7 @@
 # oop-unit-tests
-Repository for sharing unit tests for OOP course
+Repository for sharing unit tests for the OOP course
 
-There is `clone.sh` bash script available which clones skeleton and tests for a task. Usage: `./clone.sh {task} {dest}` - creates `{task}` directory in `{dest}`
+There is a `clone.sh` bash script available which clones the skeleton and tests for a task. Usage: `./clone.sh {task} {dest}` - creates a `{task}` directory in `{dest}`
 
 # How to contribute with tests
 
@@ -10,7 +10,7 @@ There is `clone.sh` bash script available which clones skeleton and tests for a 
 1. If you don't have the repo on your machine:
     1. Fork the repository on Github
     2. Clone your repository into your machine
-    3. Add remote upstream `git remote add upstream https://github.com/mhorod/oop-unit-tests`
+    3. Add a remote upstream `git remote add upstream https://github.com/mhorod/oop-unit-tests`
 
 
 2. Sync local repository with remote
@@ -21,7 +21,7 @@ There is `clone.sh` bash script available which clones skeleton and tests for a 
         1. `git fetch`
         2. `git rebase origin/main`
         
-3. Create branch for your changes and switch to it
+3. Create a branch for your changes and switch to it
     1. `git branch {branch_name}`
     2. `git checkout {branch_name}`
 
@@ -33,11 +33,11 @@ There is `clone.sh` bash script available which clones skeleton and tests for a 
 6. Commit your changes and push them
 7. Go to your repository on Github and create a pull request
 
-## code style
+## Code style
 This is recommended style guide for writing tests. While not necessary, following it will be highly appreciated.
 
 ### Classes
-In single java project there can exist only one class of given name. In order to avoid name conflicts prefix your test class with name and surname., e.g. `class JohnDoeTests {}`
+In a single java project there can exist only one class of a given name. In order to avoid name conflicts, prefix your test class with name and surname., e.g. `class JohnDoeTests {}`
 
 With `JUnit` you can group your tests in nested classes with `RunWith(@Enclosed.class)`
 
@@ -64,18 +64,18 @@ public class ExampleTest
 Use `snake_case` for naming test methods and use names that convey expected behavior.
 e.g. `size` is a bad name for a test while `size_of_new_list_is_zero` is better.
 
-Try to make your tests concise and focused on single thing.
+Try to make your tests concise and focused on a single thing.
 Test behavior rather than interface.
-If you have many assertions consider splling the test into more functions.
+If you have many assertions consider splitting the test into more functions.
 
 # Running tests in IntelliJ
 
-Put files with unit tests in directory `src/test/java/` in your solution project.
+Put files with unit tests in the `src/test/java/` directory in your solution project.
 
-1. In toolbar click between `Build` and `Run` icons
+1. In the toolbar click between the `Build` and `Run` icons
 2. `Edit Configurations`
 3. `Add new configuration > JUnit`
 4. `JUnit > Add new run configuration`
 5. Select `Class` to run single test file
-6. Select `All in directory` and select directory to run all tests
-7. Press `Run` icon to run tests
+6. Select `All in directory` and select the directory to run all tests
+7. Press the `Run` icon to run tests
