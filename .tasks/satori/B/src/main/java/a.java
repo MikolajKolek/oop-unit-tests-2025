@@ -5,6 +5,12 @@
 
 public class a {
   public a a;
-  public int a() { return 0; }
-  public a a(int a) { return this; }
+
+  public int a() {
+    return 0; 
+  }
+  
+  public a a(int a) {
+    return this; 
+  }
 }
