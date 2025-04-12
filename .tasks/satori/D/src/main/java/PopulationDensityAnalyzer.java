@@ -11,6 +11,8 @@ class RestrictedAreaException extends RuntimeException {}
 class InvalidDensityException extends RuntimeException {}
 
 public class PopulationDensityAnalyzer {
+  PopulationDensityAnalyzer(int[][] grid, boolean[][] restricted) {}
+
   public void updateDensity(int x, int y, int newValue) {}
 
   public Map<Integer, Integer> getHistogram(int x1, int y1, int x2, int y2) {
