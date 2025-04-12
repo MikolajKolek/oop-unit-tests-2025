@@ -1,4 +1,5 @@
 import org.junit.Test;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -23,7 +24,7 @@ public class DominikKorsaGraphViewTest {
         assertTrue(map.containsKey(1));
         assertFalse(map.containsKey(2));
         assertEquals(list.size(), graph.size());
-        assertEquals(list.get(0).size(), graph.size());
+        assertEquals(((List) list.get(0)).size(), graph.size());
 
         graph.removeVertex();
 
@@ -33,7 +34,7 @@ public class DominikKorsaGraphViewTest {
         assertFalse(map.containsKey(1));
         assertFalse(map.containsKey(2));
         assertEquals(list.size(), graph.size());
-        assertEquals(list.get(0).size(), graph.size());
+        assertEquals(((List) list.get(0)).size(), graph.size());
     }
 
     @Test
